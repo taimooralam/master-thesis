@@ -76,6 +76,8 @@ def collect(buffer_r, render_w):
 
 
 def show(render_r):
+    fourcc = cv2.VideoWriter_fourcc(*'MP4V')
+    out = cv2.VideoWriter("out.mp4", fourcc, 20.0, (1280, 720))
     while True:
         frame_with_metadata = render_r.recv()
         frame_number, timestamp, frame_length, serialized_data = helper.unpack_helper("idi", frame_with_metadata)
@@ -88,9 +90,10 @@ def show(render_r):
             jpeg_bytes = base64.b64decode(base64_string)
             jpeg = np.fromstring(jpeg_bytes,dtype=dtype)
             jpeg.shape = shape
-            image = cv2.imdecode(jpeg,1)
-            cv2.imshow("Show", image)
-            cv2.waitKey(0)
+            image = cv2.imdecode(jpeg,cv2.IMREAD_COLOR)
+            out.write(image)
+            #cv2.imshow("Show", image)
+            #cv2.waitKey(0)
 
 
 
