@@ -3,3 +3,5 @@ The video streaming module reads data from a source file called `video.mp4` and 
 `vehicle.py` acts as the UDP client, reads the file with `frames` along with their numbers: `frame_number`. `op.py` acts as the UDP server, reader the chunks and combines them into frames and then stores the frames in a file. `video.mp4` is the source file while `out.mp4` is the destination file.
 
 The program was developed and run on Macbook Air (MacOS Mojave) using PyCharm IDE.
+
+Change `config.py` for IP and port number as well as a single chunk size for the program to work. 
