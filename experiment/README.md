@@ -4,6 +4,9 @@ The TCP and UDP experiments are in `tcpudp` folder, while the QUIC experiments a
 
 In the TCP UDP folder, the files `car.py` and `driver.py` are the files for signifying the sending of 50000 packets from the car to the driver with a base latency of 30ms and packet loss of 1% of mininet. The TT is calculated for all the packets and plotted via plotly in the `graphs` folder. The mininet topology is present in the `topologies/lat_udp_1.py`.
 
+
+(Before running the experiment set the IP, PORT Number and chunk size in `helper.py`)
+
 To run the experiment for both tcp and udp with 30ms of base latency and 1% of packet loss run the following two commands while being in the `tcpudp` directory:
 
 - `sudo python topologies/lat_udp_1.py tcp 30ms 1`
